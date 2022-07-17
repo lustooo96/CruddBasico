@@ -195,6 +195,7 @@
             this.ano.Name = "ano";
             this.ano.Size = new System.Drawing.Size(201, 20);
             this.ano.TabIndex = 4;
+            this.ano.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ano_KeyPress);
             // 
             // chassi
             // 

@@ -31,7 +31,7 @@ namespace CruddBasico.Services
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("O registro não foi cadastrado , pois o chassi está invalido!", "Falha no Cadastro", System.Windows.MessageBoxButton.OK);
                 return false;
             }
-            else if (!ValidaAno(car.Ano))
+            else if (!ValidaAno(car.Ano.ToString()))
             {
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("O registro não foi cadastrado , pois o ano está invalido!", "Falha no Cadastro", System.Windows.MessageBoxButton.OK);
                 return false;
@@ -67,9 +67,19 @@ namespace CruddBasico.Services
 
         private static bool ValidaAno(string ano)
         {
-            var checkAno= ano.Replace("-", "").Trim();
-            var placaPadraoRegex = new Regex("[0-9]");
-            return placaPadraoRegex.IsMatch(checkAno);
+
+            var day = DateTime.Now.ToString("yyyy");
+            var dayNumber = Convert.ToInt32(day);
+            var dayForm = Convert.ToInt32(ano);
+            if (1950 < dayForm && dayForm <= dayNumber + 1) {
+                var checkAno = ano.Replace("-", "").Trim();
+                var placaPadraoRegex = new Regex("[0-9]");
+                return placaPadraoRegex.IsMatch(checkAno);
+            }else
+            {
+                return false;
+            }
+            
         }
         private static bool ValidaMarca(string marca)
         {

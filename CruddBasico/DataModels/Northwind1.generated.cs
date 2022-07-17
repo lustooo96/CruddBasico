@@ -23,7 +23,7 @@ namespace DataModels
 	/// </summary>
 	public partial class BancoTesteDB : LinqToDB.Data.DataConnection
 	{
-		public ITable<Carro> Carroes { get { return this.GetTable<Carro>(); } }
+		public ITable<Carro> Carro { get { return this.GetTable<Carro>(); } }
 
 		public BancoTesteDB()
 		{

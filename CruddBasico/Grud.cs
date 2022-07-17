@@ -32,8 +32,11 @@ namespace CruddBasico
             carro.Modelo = modelo.Text;
             carro.Placa = placa.Text;
             carro.Chassi = chassi.Text;
-            carro.Ano = Convert.ToInt32(ano.Text));
-            carro.Marca = marca.Text;
+
+            if (ano.Text != "" ) {
+                carro.Ano = Convert.ToInt32(ano.Text);
+            }
+           carro.Marca = marca.Text;
 
             //Valida se é pra editar ou criar um novo registro
 
@@ -137,6 +140,20 @@ namespace CruddBasico
             else if (textBox6.Text == "")
             {
                 ScreenActions.RefreshDataGrid(dataGridView1);
+            }
+        }
+
+        private void ano_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
     }
