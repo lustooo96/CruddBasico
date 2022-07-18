@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
+using System.Drawing;
 
 namespace CruddBasico
 {
@@ -129,7 +130,7 @@ namespace CruddBasico
             id.Text = "";
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
+        private void textSearchById_TextChanged(object sender, EventArgs e)
         {
             //Faz a filtração da busca 
             Regex isnumber = new Regex("[^0-9]");
@@ -155,6 +156,40 @@ namespace CruddBasico
             {
                 e.Handled = true;
             }
+        }
+
+        private void textSearchById_Leave(object sender, EventArgs e)
+        {
+            if (textBox6.Text == "")
+            {
+                textBox6.Text = "Informe o id do carro";
+            }
+            textBox6.ForeColor = Color.DarkGray;
+        }
+
+        private void textSearchById_Enter(object sender, EventArgs e)
+        {
+            if (textBox6.Text == "Informe o id do carro")
+            {
+                textBox6.Text = null;
+            }
+            textBox6.ForeColor = Color.Black;
+
+        }
+
+        private void textSearchById_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        
         }
     }
 }

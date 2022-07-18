@@ -119,6 +119,7 @@
             // id
             // 
             this.id.Location = new System.Drawing.Point(83, 71);
+            this.id.MaxLength = 30;
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Size = new System.Drawing.Size(88, 20);
@@ -185,6 +186,7 @@
             this.marca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.marca.Cursor = System.Windows.Forms.Cursors.Hand;
             this.marca.Location = new System.Drawing.Point(83, 295);
+            this.marca.MaxLength = 30;
             this.marca.Name = "marca";
             this.marca.Size = new System.Drawing.Size(201, 20);
             this.marca.TabIndex = 5;
@@ -192,6 +194,7 @@
             // ano
             // 
             this.ano.Location = new System.Drawing.Point(83, 244);
+            this.ano.MaxLength = 5;
             this.ano.Name = "ano";
             this.ano.Size = new System.Drawing.Size(201, 20);
             this.ano.TabIndex = 4;
@@ -200,6 +203,7 @@
             // chassi
             // 
             this.chassi.Location = new System.Drawing.Point(83, 197);
+            this.chassi.MaxLength = 30;
             this.chassi.Name = "chassi";
             this.chassi.Size = new System.Drawing.Size(201, 20);
             this.chassi.TabIndex = 3;
@@ -207,6 +211,7 @@
             // placa
             // 
             this.placa.Location = new System.Drawing.Point(83, 153);
+            this.placa.MaxLength = 14;
             this.placa.Name = "placa";
             this.placa.Size = new System.Drawing.Size(201, 20);
             this.placa.TabIndex = 2;
@@ -214,6 +219,7 @@
             // modelo
             // 
             this.modelo.Location = new System.Drawing.Point(83, 110);
+            this.modelo.MaxLength = 30;
             this.modelo.Name = "modelo";
             this.modelo.Size = new System.Drawing.Size(201, 20);
             this.modelo.TabIndex = 1;
@@ -245,13 +251,20 @@
             // textBox6
             // 
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.ForeColor = System.Drawing.Color.DarkGray;
             this.textBox6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox6.Location = new System.Drawing.Point(291, 36);
-            this.textBox6.MaxLength = 10;
+            this.textBox6.Location = new System.Drawing.Point(277, 51);
+            this.textBox6.MaxLength = 4;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(169, 20);
+            this.textBox6.Size = new System.Drawing.Size(169, 24);
             this.textBox6.TabIndex = 1;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.textBox6.Text = "Informe o id do carro";
+            this.textBox6.TextChanged += new System.EventHandler(this.textSearchById_TextChanged);
+            this.textBox6.Enter += new System.EventHandler(this.textSearchById_Enter);
+            this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textSearchById_KeyPress);
+            this.textBox6.Leave += new System.EventHandler(this.textSearchById_Leave);
             // 
             // tableLayoutPanel1
             // 

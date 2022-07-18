@@ -61,7 +61,7 @@ namespace CruddBasico.Services
         private static bool ValidaChassi(string chassi)
         {
             var checkChassi = chassi.Replace("-", "").Trim();
-            var placaPadraoRegex = new Regex("[a-zA-Z]");
+            var placaPadraoRegex = new Regex("[a-zA-Z][0-9]");
             return placaPadraoRegex.IsMatch(checkChassi);
         }
 

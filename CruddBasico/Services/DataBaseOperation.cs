@@ -18,7 +18,7 @@ namespace CruddBasico.Services
                 {
                     using (var db = new BancoTesteDB())
                     {
-                        db.Carro
+                        db.Carroes
                             .Value(p => p.Modelo, car.Modelo)
                             .Value(p => p.Placa, car.Placa)
                             .Value(p => p.Chassi, car.Chassi)
@@ -43,7 +43,7 @@ namespace CruddBasico.Services
                 {
                     using (var db = new BancoTesteDB())
                     {
-                        db.Carro
+                        db.Carroes
                             .Where(p => p.Idcarro == idCar)
                             .Delete();
                     }
@@ -66,7 +66,7 @@ namespace CruddBasico.Services
                 {
                     using (var db = new BancoTesteDB())
                     {
-                        db.Carro
+                        db.Carroes
                           .Where(p => p.Idcarro == idCar)
                           .Set(p => p.Modelo, car.Modelo)
                           .Set(p => p.Placa, car.Placa)
@@ -88,7 +88,7 @@ namespace CruddBasico.Services
             using (var db = new BancoTesteDB())
             {
                 var query =
-                    from carro in db.Carro
+                    from carro in db.Carroes
                     select carro;
 
                 return query.ToList();
@@ -99,7 +99,7 @@ namespace CruddBasico.Services
             using (var db = new BancoTesteDB())
             {
                 var query =
-                    from carro in db.Carro
+                    from carro in db.Carroes
                     where carro.Idcarro == idCar
                     select carro;
 
